@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+
 let host = mongoose.Schema({
   Host: {
     Id: Number,
@@ -10,11 +13,11 @@ let host = mongoose.Schema({
   },
   SuperHost: Boolean,
   AboutMe: String,
-  Languages: Array,
-  ResponseRate: Number,
+  Languages: String,
+  ResponseRate: String,
   ResponseTime: String
 });
 
-const newHost = mongoose.model('user', host);
+const newHost = mongoose.model('Host', host);
 
 module.exports = newHost;
