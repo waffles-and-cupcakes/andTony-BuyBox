@@ -29,7 +29,6 @@ for (var i = 1; i <= 100; i++) {
 // adds data into db here.
 const generateData = function() {
   // creates new data in database, then disconnects?
-    console.log('blue')
   newHost.create(data)
     .then(() => db.disconnect());
 };
