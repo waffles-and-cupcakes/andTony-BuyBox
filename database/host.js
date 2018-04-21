@@ -9,7 +9,7 @@ let host = mongoose.Schema({
     Location: String,
     Joined: String,
     References: Number,
-    Verified: Boolean
+    Verified: Boolean,
   },
   SuperHost: Boolean,
   AboutMe: String,
@@ -18,6 +18,35 @@ let host = mongoose.Schema({
   ResponseTime: String
 });
 
-const newHost = mongoose.model('Host', host);
 
-module.exports = newHost;
+const NewHost = mongoose.model('Host', host);
+
+// let queryDb = function(cb) {
+//   console.log('asd')
+//   newHost.find({}, function(err, docs) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       cb(docs);
+//     }
+//   })
+// }
+
+let test = function(id, cb) {
+  // console.log('we did it')
+  NewHost.find({'Host.Id': id}, function(err, docs) {
+    console.log('purp')
+    if (err) {
+      console.log('err');
+    } else {
+      console.log('cool')
+      cb(docs);
+    }
+  })
+}
+
+
+// module.exports.queryDb = queryDb;
+module.exports = NewHost;
+
+module.exports.test = test;
